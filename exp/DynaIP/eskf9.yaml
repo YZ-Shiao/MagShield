@@ -1,0 +1,3 @@
+inertial_poser: DynaIP
+use_detector: False
+use_corrector: False

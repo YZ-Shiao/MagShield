@@ -1,0 +1,3 @@
+inertial_poser: PNP
+use_detector: False
+use_corrector: False

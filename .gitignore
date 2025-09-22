@@ -1,0 +1,7 @@
+.vscode
+__pycache__
+results/*
+models/*
+datasets/*
+inertial_poser/DynaIP/weights/*
+inertial_poser/PNP/weights/*
