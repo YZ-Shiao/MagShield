@@ -2,8 +2,6 @@
 
 Official code for our ICCV25 [paper](https://arxiv.org/abs/2506.22907) “MagShield: Towards Better Robustness in Sparse Inertial Motion Capture Under Magnetic Disturbances”. See [project page](https://yz-shiao.github.io/MagShield).
 
-
-
 ## Usage
 
 ### Install dependencies
@@ -18,7 +16,7 @@ For full integration with existing inertial posers (`PNP` and `DynaIP`), you'll 
 
 ### Prepare SMPL body model
 
-Download SMPL model from [their official webset](https://smpl.is.tue.mpg.de). You should download the version 1.0.0 for Python 2.7 (10 shape PCs). Rename and put the male model file into `models/SMPL_male.pkl`.
+Download SMPL model from [here](https://smpl.is.tue.mpg.de). You should download the version 1.0.0 for Python 2.7 (10 shape PCs). Rename and put the male model file into `models/SMPL_male.pkl`.
 
 ### Prepare network weights of inertial posers
 
