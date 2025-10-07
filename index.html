@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MagShield | Research Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 配置Tailwind -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              secondary: "#64748b",
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+
+    <!-- 导入字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 本地字体图标样式 (精简版) -->
+    <style>
+      .icon {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        stroke-width: 0;
+        stroke: currentColor;
+        fill: currentColor;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+
+  <body class="font-sans bg-gray-50 text-black">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl py-12">
+      <!-- 1. 标题和作者信息 -->
+      <header class="text-center mb-10">
+        <h1 class="text-3xl md:text-4xl font-bold mb-6">
+          MagShield: Towards Better Robustness in Sparse Inertial Motion Capture
+          Under Magnetic Disturbances
+        </h1>
+
+        <!-- 作者列表（带单位上标） -->
+        <div
+          class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-2xl mb-6"
+        >
+          <span>
+            Yunzhe Shao<sup class="affiliation-mark text-primary">1</sup>
+          </span>
+          <span>
+            Xinyu Yi<sup class="affiliation-mark text-primary">1</sup>
+          </span>
+          <span>
+            Lu Yin<sup class="affiliation-mark text-primary">2</sup>
+          </span>
+          <span>
+            Shihui Guo<sup class="affiliation-mark text-primary">2</sup>
+          </span>
+          <span>
+            Junhai Yong<sup class="affiliation-mark text-primary">1</sup>
+          </span>
+          <span>
+            Feng Xu<sup class="affiliation-mark text-primary">1</sup>
+          </span>
+        </div>
+
+        <!-- 单位列表（对应上标） -->
+        <div class="text-xl max-w-2xl mx-auto">
+          <p>
+            <sup class="affiliation-mark text-primary">1</sup>
+            School of Software and BNRist, Tsinghua University
+          </p>
+          <p>
+            <sup class="affiliation-mark text-primary">2</sup>
+            School of Informatics, Xiamen University
+          </p>
+        </div>
+
+        <div class="text-xl mt-4 italic">Accepted by ICCV 2025</div>
+      </header>
+
+      <!-- 新增：图片和介绍文字区域 -->
+      <section class="mb-16 flex flex-col items-center">
+        <img
+          src="teaser.png"
+          class="rounded-xl shadow-md mb-6 w-full object-cover"
+        />
+        <p class="text-lg text-gray-700 text-center">
+          We propose MagShield, an IMU orientation estimation method that
+          specifically designed to address magnetic disturbances in sparse
+          inertial MoCap systems. By integrating with our method, existing
+          sparse inertial MoCap systems (left, PNP; right, DynaIP) can operate
+          reliably even under severe magnetic condition.
+        </p>
+      </section>
+
+      <!-- 2. 资源链接按钮 -->
+      <div class="flex flex-wrap justify-center gap-4 mb-16">
+        <a
+          href="paper.pdf"
+          class="inline-flex items-center gap-2 px-7 py-4 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-colors text-xl font-semibold"
+        >
+          <span class="text-xl">Paper</span>
+        </a>
+        <a
+          href="supplementary.pdf"
+          class="inline-flex items-center gap-2 px-7 py-4 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-colors text-xl font-semibold"
+        >
+          <span class="text-xl">Supplementary</span>
+        </a>
+        <a
+          href="https://github.com/YZ-Shiao/MagShield"
+          class="inline-flex items-center gap-2 px-7 py-4 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-colors text-xl font-semibold"
+        >
+          <span class="text-xl">Code</span>
+        </a>
+        <a
+          href="https://drive.google.com/file/d/1xh5JR40reX0zpeOW0XqVV2f7qtYRyzeX/view?usp=drive_link"
+          class="inline-flex items-center gap-2 px-7 py-4 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-colors text-xl font-semibold"
+        >
+          <span class="text-xl">Dataset</span>
+        </a>
+        <a
+          href="https://www.youtube.com/watch?v=FkfKeX3cgz8&t=5s"
+          class="inline-flex items-center gap-2 px-7 py-4 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-colors text-xl font-semibold"
+        >
+          <span class="text-xl">Video</span>
+        </a>
+        <a
+          href="poster.pdf"
+          download
+          class="inline-flex items-center gap-2 px-7 py-4 bg-gray-600 text-white rounded-xl hover:bg-gray-700 transition-colors text-xl font-semibold"
+        >
+          <span class="text-xl">Poster</span>
+        </a>
+      </div>
+
+      <!-- 3. 摘要区域 -->
+      <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-4">Abstract</h2>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <p class="text-lg leading-relaxed">
+            This paper proposes a novel method, named MagShield, designed to
+            address the issue of magnetic disturbances in sparse inertial motion
+            capture (MoCap) systems. Existing Inertial Measurement Units (IMUs)
+            are prone to orienta tion estimation errors in magnetically
+            disturbed environ ments, limiting the practical application of
+            inertial Mocap systems in real-world scenarios. To address this
+            problem, MagShield employs a “detect-then-correct” strategy, first
+            detecting magnetic disturbances through multi-IMU joint analysis,
+            and then correcting orientation errors using hu man motion priors.
+            MagShield can be integrated with most existing sparse inertial MoCap
+            systems, improving their performance in magnetically disturbed
+            environments. Experimental results demonstrate that MagShield
+            significantly enhances the accuracy of motion capture under magnetic
+            interference and exhibits good compatibility across differ ent
+            sparse inertial MoCap systems.
+          </p>
+        </div>
+      </section>
+
+      <!-- 4. 视频演示区域 -->
+      <section class="mb-16 space-y-12">
+        <h2 class="text-3xl font-bold mb-8">Live Demo</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <!-- 视频窗口1：可滑动 -->
+          <div>
+            <h3 class="text-2xl font-semibold mb-4">Comparison With ESKF</h3>
+            <div class="flex flex-col items-center">
+              <div
+                class="relative w-full aspect-video bg-black rounded-xl overflow-hidden"
+              >
+                <video
+                  id="videoSlider1"
+                  class="w-full h-full object-contain"
+                  controls
+                  style="transition: opacity 0.4s; opacity: 1"
+                >
+                  <source src="video/comp_eskf_1.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <button
+                  id="prevBtn1"
+                  type="button"
+                  class="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-700 bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-primary hover:text-white transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    class="w-7 h-7"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                </button>
+                <button
+                  id="nextBtn1"
+                  type="button"
+                  class="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-700 bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-primary hover:text-white transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    class="w-7 h-7"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- 视频窗口2：可滑动 -->
+          <div>
+            <h3 class="text-2xl font-semibold mb-4">
+              Comparison With Commercial Systems
+            </h3>
+            <div class="flex flex-col items-center">
+              <div
+                class="relative w-full aspect-video bg-black rounded-xl overflow-hidden"
+              >
+                <video
+                  id="videoSlider2"
+                  class="w-full h-full object-contain"
+                  controls
+                  style="transition: opacity 0.4s; opacity: 1"
+                >
+                  <source src="video/comp_dynaip_1.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <button
+                  id="prevBtn2"
+                  type="button"
+                  class="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-700 bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-primary hover:text-white transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    class="w-7 h-7"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                </button>
+                <button
+                  id="nextBtn2"
+                  type="button"
+                  class="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-700 bg-opacity-70 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-primary hover:text-white transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    class="w-7 h-7"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- 视频窗口3：单视频 -->
+          <div>
+            <h3 class="text-2xl font-semibold mb-4">In-The-Wild Performance</h3>
+            <div class="flex flex-col items-center">
+              <div
+                class="relative w-full aspect-video bg-black rounded-xl overflow-hidden"
+              >
+                <video class="w-full h-full object-contain" controls>
+                  <source src="video/wild_480p.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+          <!-- 视频窗口4：单视频 -->
+          <div>
+            <h3 class="text-2xl font-semibold mb-4">Potential Application</h3>
+            <div class="flex flex-col items-center">
+              <div
+                class="relative w-full aspect-video bg-black rounded-xl overflow-hidden"
+              >
+                <video class="w-full h-full object-contain" controls>
+                  <source src="video/app.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <script>
+        // 视频窗口1滑动
+        const videos1 = [
+          { src: "video/comp_eskf_1.mp4" },
+          { src: "video/comp_eskf_2.mp4" },
+        ];
+        let current1 = 0;
+        const player1 = document.getElementById("videoSlider1");
+        const source1 = player1.querySelector("source");
+        function updateVideo1(idx) {
+          player1.style.opacity = 0;
+          setTimeout(() => {
+            source1.src = videos1[idx].src;
+            player1.load();
+            player1.oncanplay = () => {
+              player1.style.opacity = 1;
+              player1.play();
+              player1.oncanplay = null;
+            };
+          }, 400);
+        }
+        document.getElementById("prevBtn1").onclick = (event) => {
+          event.preventDefault();
+          current1 = (current1 - 1 + videos1.length) % videos1.length;
+          updateVideo1(current1);
+        };
+        document.getElementById("nextBtn1").onclick = (event) => {
+          event.preventDefault();
+          current1 = (current1 + 1) % videos1.length;
+          updateVideo1(current1);
+        };
+        updateVideo1(current1);
+
+        // 视频窗口2滑动
+        const videos2 = [
+          { src: "video/comp_comm_noitom.mp4" },
+          { src: "video/comp_comm_mocopi.mp4" },
+        ];
+        let current2 = 0;
+        const player2 = document.getElementById("videoSlider2");
+        const source2 = player2.querySelector("source");
+        function updateVideo2(idx) {
+          player2.style.opacity = 0;
+          setTimeout(() => {
+            source2.src = videos2[idx].src;
+            player2.load();
+            player2.oncanplay = () => {
+              player2.style.opacity = 1;
+              player2.play();
+              player2.oncanplay = null;
+            };
+          }, 400);
+        }
+        document.getElementById("prevBtn2").onclick = (event) => {
+          event.preventDefault();
+          current2 = (current2 - 1 + videos2.length) % videos2.length;
+          updateVideo2(current2);
+        };
+        document.getElementById("nextBtn2").onclick = (event) => {
+          event.preventDefault();
+          current2 = (current2 + 1) % videos2.length;
+          updateVideo2(current2);
+        };
+        updateVideo2(current2);
+      </script>
+
+      <!-- 5. 致谢区域 -->
+      <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-4">Acknowledgements</h2>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <p class="text-lg leading-relaxed">
+            The authors would like to thank Siyuan Chang, Shao hua Pan,
+            Wangyingqi Ding for their assistance with the live demos, and the
+            volunteers who helped collect the MagIMU dataset. This work was
+            supported by the National Key R&D Program of China (2023YFC3305600),
+            the Zhejiang Provincial Natural Science Foundation (LDT23F02024F02),
+            and the NSFC (No.61822111, 62021002). This work was also supported
+            by THUIBCS, Tsinghua University, and BLBCI, Beijing Municipal
+            Education Commission. Feng Xu is the corresponding author.
+          </p>
+        </div>
+      </section>
+
+      <!-- 6. 引用格式区域 -->
+      <!-- 7. 联系方式区域 -->
+      <footer
+        class="mt-16 py-8 border-t border-gray-200 text-center text-gray-600"
+      >
+        <div class="text-lg font-semibold mb-2">Contact</div>
+        <div class="space-y-1">
+          <div>
+            Email:
+            <a
+              href="mailto:2225832088@qq.com"
+              class="text-primary hover:underline"
+              >2225832088@qq.com</a
+            >
+          </div>
+        </div>
+      </footer>
+      <!-- <section>
+        <h2 class="text-2xl font-bold mb-4 text-gray-900">Citation</h2>
+        <div class="bg-gray-900 text-gray-300 p-6 rounded-xl">
+          <pre
+            class="whitespace-pre-wrap overflow-x-auto text-sm md:text-base font-mono"
+          ><code>@inproceedings{doe2023novel,
+    title={Novel Approaches in Machine Learning Research},
+    author={Doe, John and Smith, Jane and Johnson, Michael},
+    booktitle={Proceedings of the Conference Name},
+    year={2023},
+    organization={Publisher}
+
+      </pre>
+        </div>
+      </section> -->
+    </div>
+  </body>
+</html>
